@@ -1,6 +1,6 @@
 import { canSwitchTheme } from '../helpers/theme';
 
-describe('Webextension Side Panel', () => {
+describe('InfoStream', () => {
   it('should make side panel accessible', async () => {
     const extensionPath = await browser.getExtensionPath();
     const sidePanelUrl = `${extensionPath}/side-panel/index.html`;

@@ -1,21 +1,13 @@
+/* src/SidePanel.css */
 .App {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
+  position: relative;
   height: 100%;
-  padding: 1rem;
-}
-
-.App-logo {
-  height: 50vmin;
-  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2rem; /* Add padding to make space for the buffer */
 }
 
 .App-header {
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,4 +19,130 @@ code {
   background: rgba(148, 163, 184, 0.5);
   border-radius: 0.25rem;
   padding: 0.2rem 0.5rem;
+}
+
+
+/* Ensuring that overflow and spacing do not disrupt layout proportions */
+.flex-grow {
+  overflow-y: auto;
+}
+
+
+/* src/SidePanel.css */
+.side-panel-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Ensures the side panel uses the full height of the viewport */
+  width: 100%; /* Uses full width available to the side panel */
+}
+
+/* Ensure the height of each section based on the proportions you specified */
+.side-panel-container > :nth-child(1) {
+  flex: 0 0 3%; /* Status Bar Section: 10% of total height */
+}
+
+.side-panel-container > :nth-child(2) {
+  flex: 0 0 40%; /* YouTube Section: 35% of total height */
+}
+
+.side-panel-container > :nth-child(3) {
+  flex: 0 0 57%; /* Chat Display Area: 45% of total height */
+  overflow-y: auto; /* Allow scrolling for content overflow */
+}
+
+/* ChatDisplay specific styles */
+.chat-display-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem;
+  background-color: #1e1e1e; /* Dark background similar to ChatGPT dark mode */
+  overflow-y: auto;
+  height: 50%;
+}
+
+.chat-message-user {
+  background-color: #4d4c4c; /* Darker gray background for user messages */
+  padding: 0.4rem;
+  border-radius: 0.25rem;
+  margin-bottom: 0.25rem;
+  color: #e0e0e0; /* Light gray text for user messages */
+}
+
+.chat-message-bot {
+  background-color: #2a2a2a; /* Slightly lighter gray background for bot messages */
+  padding: 0.4rem;
+  border-radius: 0.25rem;
+  margin-bottom: 0.25rem;
+  color: #e0e0e0; /* Light gray text for bot messages */
+}
+
+/* YouTubeSection specific styles */
+.youtube-section-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0.25rem;
+  background-color: #FF0000; /* YouTube Red */
+  overflow: hidden;
+  height: 40%;
+}
+
+.youtube-title {
+  font-size: 1.125rem; /* text-lg */
+  font-weight: bold;
+  margin-bottom: 0.10rem; /* mb-2 */
+  color: white; /* YouTube White */
+}
+
+.youtube-transcript-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  background-color: #282828; /* YouTube Dark Gray */
+  padding: 0.5rem; /* p-2 */
+  border-radius: 0.25rem;
+}
+
+.youtube-transcript-text {
+  font-size: 0.875rem; /* text-sm */
+  color: white; /* YouTube White */
+}
+
+/* StatusBar specific styles */
+.status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background-color: white; /* bg-gray-800 */
+  color: black;
+  height: 3%;
+}
+
+.status-bar-text {
+  font-size: 0.875rem; /* text-sm */
+  text-align: center; /* Center the text horizontally */
+  width: 100%; /* Ensure the text takes the full width of the container */
+}
+
+.status-bar-button {
+  font-size: 0.875rem; /* text-sm */
+}
+
+.status-bar-icon {
+  font-size: 1.125rem; /* text-lg */
+}
+
+/* src/SidePanel.css */
+
+/* Fade-in effect for showing/hiding elements */
+.fade-in {
+  animation: fadeIn 0.2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
